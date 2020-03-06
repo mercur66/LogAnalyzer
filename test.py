@@ -40,7 +40,6 @@ for row in cursor:
     print(row)
 
     vIp =  row[1]
-
     vTemp = row[4].split('/')
     vDay = vTemp[0].replace('[','')
     vMon = md.cvMonthNum(vTemp[1])
@@ -48,23 +47,25 @@ for row in cursor:
     vHH = vTemp[2].split(':')[1]
     vMM = vTemp[2].split(':')[2]
     vSS = vTemp[2].split(':')[3]
+
     vDateTime =  vYear+vMon+vDay+vHH+vMM+vSS
     timeZone = row[5].replace(']', '')
 
-    print("IP : " + row[1])
-    print("vTemp : " + str(vTemp))
-    print("DateTime : " + vDateTime )
-
-    print("timeZone : " + timeZone)
-
-
     splitURL = row[6].split()
+    vPG = splitURL[0]
+    vURL = splitURL[1]
+    vProtocol = splitURL[2]
+    vStatus = row[7]
+    vSize = row[8]
 
-    print("P/G : " + splitURL[0])
-    print("URL : " + splitURL[1])
-    print("PROTOCOL  : " + splitURL[2])
-    print("STATUS : " + str(row[7]))
-    print("SIZE : " + str(row[8]))
+    print("IP : " + row[1])
+    print("DateTime : " + vDateTime )
+    print("timeZone : " + timeZone)
+    print("P/G : " + vPG )
+    print("URL : " + vURL)
+    print("PROTOCOL  : " + vProtocol)
+    print("STATUS : " + str(vStatus))
+    print("SIZE : " + str(vSize))
 
     print("===========================================")
 
